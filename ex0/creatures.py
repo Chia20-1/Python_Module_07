@@ -2,32 +2,36 @@ from .creature import Creature
 
 
 class Flameling(Creature):
-    def __init__(self) -> None:
-        super().__init__("Flameling", "Fire")
+    def __init__(self, attribute: str) -> None:
+        super().__init__(attribute) 
 
     def attack(self) -> str:
-        return ("Flameling uses Ember!")
+        name = self.name.capitalize()
+        return f"{name} uses Ember!"
 
 
 class Pyrodon(Creature):
-    def __init__(self) -> None:
-        super().__init__("Pyrodon", "Fire/Flying")
+    def __init__(self, attribute: str) -> None:
+        super().__init__(attribute) 
 
     def attack(self) -> str:
-        return ("Pyrodon uses Flamethrower!")
+        name = self.name.capitalize()
+        return f"{name} uses Flamethrower!"
 
 
 class Aquabub(Creature):
-    def __init__(self) -> None:
-        super().__init__("Aquabub", "Water")
+    def __init__(self, attribute: str) -> None:
+        super().__init__(attribute) 
 
     def attack(self) -> str:
-        return ("Aquabub uses Water Gun!")
+        name = self.name.capitalize()
+        return f"{name} uses Water Gun!"
 
 
 class Torragon(Creature):
-    def __init__(self) -> None:
-        super().__init__("Torragon", "Water")
+    def __init__(self, attribute: str) -> None:
+        super().__init__(attribute) 
 
     def attack(self) -> str:
-        return ("Torragon uses Hydro Pump!")
+        name = self.name.capitalize()
+        return f"{name} uses Hydro Pump!"

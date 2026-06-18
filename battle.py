@@ -18,7 +18,7 @@ def test_battle(first_factory: CreatureFactory,
     first = first_factory.create_base()
     second = second_factory.create_base()
     print(first.describe())
-    print(" vs .")
+    print(" vs.")
     print(second.describe())
     print(" fight!")
     print(first.attack())
