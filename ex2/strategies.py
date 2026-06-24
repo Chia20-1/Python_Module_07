@@ -1,6 +1,8 @@
 from .battle_strategy import BattleStrategy
 from .errors import InvalidCreature, BattleError
 from ex0.creature import Creature
+from ex1.heal_capability import HealCapability
+from ex1.transform_capability import TransformCapability
 
 
 class NormalStrategy(BattleStrategy):
@@ -20,8 +22,10 @@ class NormalStrategy(BattleStrategy):
 
 class AggressiveStrategy(BattleStrategy):
     def is_valid(self, creature: Creature) -> bool:
-        if not isinstance(creature, Creature):
-            return False
+        return (
+            isinstance(creature, Creature)
+            and isinstance(creature, TransformCapability)
+        )
 
     def act(self, creature: Creature) -> None:
         pass
@@ -29,8 +33,10 @@ class AggressiveStrategy(BattleStrategy):
 
 class DefensiveStrategy(BattleStrategy):
     def is_valid(self, creature: Creature) -> bool:
-        if not isinstance(creature, Creature):
-            return False
+        return (
+            isinstance(creature, Creature)
+            and isinstance(creature, HealCapability)
+        )
 
     def act(self, creature: Creature) -> None:
         pass
