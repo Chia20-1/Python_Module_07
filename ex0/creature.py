@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class Creature(ABC):
-    def __init__(self, attribute) -> None:
+    def __init__(self, attribute: str) -> None:
         self.name = self.__class__.__name__
         self.attribute = attribute
 
@@ -12,5 +12,4 @@ class Creature(ABC):
 
     def describe(self) -> str:
         name = self.name.capitalize()
-        attr = self.attribute.capitalize()
-        return f"{name} is a {attr} type Creature"
+        return f"{name} is a {self.attribute} type Creature"
