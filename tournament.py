@@ -34,7 +34,6 @@ def battle(opponents: list[Opponent]) -> None:
                 print(" now fight!")
                 strategy_one.act(creature_one)
                 strategy_two.act(creature_two)
-                print()
     except BattleError as e:
         print("BattleError, aborting tournament: ", e)
 
@@ -63,9 +62,12 @@ if __name__ == "__main__":
     print("Tournament 0 (basic)")
     print("[ (Flameling+Normal), (Healing+Defensive) ]")
     battle(basic_opponents)
+    print()
     print("Tournament 1 (error)")
     print("[ (Flameling+Aggressive), (Healing+Defensive) ]")
     battle(error_opponents)
+    print()
     print("Tournament 2 (multiple)")
     print("[ (Aquabub+Normal), (Healing+Defensive), (Transform+Aggressive) ]")
     battle(multiple_opponents)
+    print()
