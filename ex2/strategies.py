@@ -1,5 +1,5 @@
 from .battle_strategy import BattleStrategy
-from .errors import InvalidCreature, BattleError
+from .errors import BattleError
 from ex0.creature import Creature
 from ex1.heal_capability import HealCapability
 from ex1.transform_capability import TransformCapability
@@ -11,13 +11,12 @@ class NormalStrategy(BattleStrategy):
 
     def act(self, creature: Creature) -> None:
         strat_name = self.__class__.__name__
-        if self.is_valid(creature):
-            print(creature.attack())
-        else:
-            raise InvalidCreature(
+        if not self.is_valid(creature):
+            raise BattleError(
                 f"{strat_name} requires a Creature instance, "
                 f"got {type(creature).__name__}"
             )
+        print(creature.attack())
 
 
 class AggressiveStrategy(BattleStrategy):
@@ -28,7 +27,15 @@ class AggressiveStrategy(BattleStrategy):
         )
 
     def act(self, creature: Creature) -> None:
-        pass
+        if not self.is_valid(creature):
+            raise BattleError(
+                f'Invalid Creature "{creature.__class__.__name__}" '
+                f"for this aggressive strategy."
+            )
+        assert isinstance(creature, TransformCapability)
+        print(creature.transform())
+        print(creature.attack())
+        print(creature.revert())
 
 
 class DefensiveStrategy(BattleStrategy):
@@ -39,4 +46,11 @@ class DefensiveStrategy(BattleStrategy):
         )
 
     def act(self, creature: Creature) -> None:
-        pass
+        if not self.is_valid(creature):
+            raise BattleError(
+                f'Invalid Creature "{creature.__class__.__name__}" '
+                f"for this defensive strategy."
+            )
+        assert isinstance(creature, HealCapability)
+        print(creature.attack())
+        print(creature.heal())

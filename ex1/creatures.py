@@ -11,9 +11,9 @@ class Sproutling(Creature, HealCapability):
         name = self.name.capitalize()
         return f"{name} uses Vine Whip!"
 
-    def heal(self, target: str) -> str:
+    def heal(self) -> str:
         name = self.name.capitalize()
-        return f"{name} heals {target} for a small amount."
+        return f"{name} heals itself for a small amount."
 
 
 class Bloomelle(Creature, HealCapability):
@@ -24,9 +24,9 @@ class Bloomelle(Creature, HealCapability):
         name = self.name.capitalize()
         return f"{name} uses Petal Dance!"
 
-    def heal(self, target: str) -> str:
+    def heal(self) -> str:
         name = self.name.capitalize()
-        return f"{name} heals {target} for a large amount."
+        return f"{name} heals itself and others for a large amount."
 
 
 class Shiftling(Creature, TransformCapability):

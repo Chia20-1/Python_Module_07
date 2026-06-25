@@ -1,7 +1,7 @@
 from .strategies import NormalStrategy, AggressiveStrategy, DefensiveStrategy
-from .errors import InvalidCreature, BattleError
+from .errors import BattleError
 
 __all__ = [
-	"InvalidCreature", "BattleError", "NormalStrategy",
-	"AggressiveStrategy", "DefensiveStrategy"
+    "BattleError", "NormalStrategy",
+    "AggressiveStrategy", "DefensiveStrategy"
 ]

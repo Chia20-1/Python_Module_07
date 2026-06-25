@@ -9,11 +9,11 @@ def test_healing_factory() -> None:
     evolved = healing_factory.create_evolved()
     print(base.describe())
     print(base.attack())
-    print(base.heal("itself"))
+    print(base.heal())
     print(" evolved:")
     print(evolved.describe())
     print(evolved.attack())
-    print(evolved.heal("itself and others"))
+    print(evolved.heal())
 
 
 def test_transform_factory() -> None:

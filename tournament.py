@@ -1,7 +1,7 @@
 from ex0 import AquaFactory, FlameFactory
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
 from ex2 import NormalStrategy, AggressiveStrategy, DefensiveStrategy
-from ex2 import InvalidCreature
+# from ex2 import BattleError
 
 
 if __name__ == "__main__":
@@ -14,12 +14,12 @@ if __name__ == "__main__":
     aggressive = AggressiveStrategy()
     defensive = DefensiveStrategy()
 
-    magikarp: str = "Magikarp"
-    print("Extra Test Invalid Creature Instance")
-    try:
-        normal.act(magikarp)
-    except InvalidCreature as e:
-        print(e)
+    # magikarp: str = "Magikarp"
+    # print("Extra Test Invalid Creature Instance")
+    # try:
+    #     normal.act(magikarp)
+    # except BattleError as e:
+    #     print(e)
 
     normal_creature = AquaFactory().create_base()
     healing_creature = HealingCreatureFactory().create_base()
