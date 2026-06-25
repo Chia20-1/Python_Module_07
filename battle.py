@@ -1,5 +1,4 @@
-from ex0 import AquaFactory, FlameFactory
-from ex0.creature_factory import CreatureFactory
+from ex0 import AquaFactory, FlameFactory, CreatureFactory
 
 
 def test_factory(factory: CreatureFactory) -> None:

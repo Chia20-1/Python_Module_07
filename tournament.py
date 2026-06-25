@@ -1,8 +1,20 @@
-from ex0 import AquaFactory, FlameFactory
+from typing import TypeAlias
+from ex0.creature import Creature
+from ex0 import AquaFactory, FlameFactory, CreatureFactory
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
-from ex2 import NormalStrategy, AggressiveStrategy, DefensiveStrategy
-# from ex2 import BattleError
+from ex2 import (
+    BattleError,
+    BattleStrategy,
+    NormalStrategy, 
+    AggressiveStrategy, 
+    DefensiveStrategy,
+)
 
+opponent: TypeAlias = tuple[CreatureFactory, BattleStrategy]
+combatant: TypeAlias = tuple[Creature, BattleStrategy]
+
+def battle(opponents: list[tuple[CreatureFactory, BattleStrategy]]) -> None:
+    pass
 
 if __name__ == "__main__":
     aqua_factory = AquaFactory()
@@ -13,26 +25,3 @@ if __name__ == "__main__":
     normal = NormalStrategy()
     aggressive = AggressiveStrategy()
     defensive = DefensiveStrategy()
-
-    # magikarp: str = "Magikarp"
-    # print("Extra Test Invalid Creature Instance")
-    # try:
-    #     normal.act(magikarp)
-    # except BattleError as e:
-    #     print(e)
-
-    normal_creature = AquaFactory().create_base()
-    healing_creature = HealingCreatureFactory().create_base()
-    transforming_creature = TransformCreatureFactory().create_base()
-
-    creatures = [
-        normal_creature,
-        healing_creature,
-        transforming_creature,
-    ]
-
-    for creature in creatures:
-        print(creature.__class__.__name__)
-        print("Normal:", normal.is_valid(creature))
-        print("Aggressive:", aggressive.is_valid(creature))
-        print("Defensive:", defensive.is_valid(creature))
